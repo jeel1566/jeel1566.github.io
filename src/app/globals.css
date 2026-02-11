@@ -1,8 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Oswald:wght@700&display=swap');
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  --background: #4B3621;
+  /* Coffee Brown */
+  --foreground: #F5F5F5;
+  /* Off-white */
   --primary: #3b82f6;
   --secondary: #ec4899;
   --accent: #8b5cf6;

@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './home.module.css';
 import ProjectCard from '@/components/ProjectCard';
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,21 +34,23 @@ export default function Home() {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
+      // Hero Animations
       const tl = gsap.timeline();
-      tl.from(`.${styles.title} span`, {
+
+      tl.from(`.${styles.heroTitle}`, {
         y: 100,
         opacity: 0,
-        duration: 1,
-        stagger: 0.1,
+        duration: 1.5,
         ease: 'power4.out',
       })
-        .from(`.${styles.subtitle}`, {
-          y: 20,
+        .from(`.${styles.heroImage}`, {
+          y: 50,
           opacity: 0,
-          duration: 0.8,
+          duration: 1.2,
           ease: 'power2.out',
-        }, '-=0.5');
+        }, '-=1');
 
+      // Scroll Animations
       gsap.from(`.${styles.projectsSection} > div`, {
         scrollTrigger: {
           trigger: `.${styles.projectsSection}`,
@@ -65,17 +68,30 @@ export default function Home() {
 
   return (
     <main ref={comp} className={styles.main}>
-      <div className={styles.centerContent}>
-        <h1 className={styles.title}>
-          <span className={styles.inlineBlock}>Building</span>{' '}
-          <span className={`${styles.inlineBlock} ${styles.gradientText}`}>The Future</span>{' '}
-          <span className={styles.inlineBlock}>of Context</span>
-        </h1>
-        <p className={styles.subtitle}>
-          Creative Developer • Student • Visionary behind FlowGent & Context Bridge
-        </p>
-      </div>
+      {/* Hero Section */}
+      <section className={styles.heroContent}>
+        <div className={styles.heroTextContainer}>
+          <h1 className={styles.heroTitle}>JEEL PATEL</h1>
+        </div>
 
+        <div className={styles.lightingEffect}></div>
+
+        <div className={styles.heroImageContainer}>
+          {/* Using a placeholder if image is missing, or user provided image */}
+          {/* Note: User needs to place 'hero.png' in public folder or update this path */}
+          <div className={styles.heroImage}>
+            <Image
+              src="/hero.png"
+              alt="Jeel Patel"
+              fill
+              style={{ objectFit: 'contain', objectPosition: 'bottom' }}
+              priority
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
       <section className={styles.projectsSection}>
         <div className={styles.projectsGrid}>
           {projects.map((project, index) => (
@@ -86,6 +102,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Memory Section */}
       <section className={styles.memorySection}>
         <h2 className={styles.memoryTitle}>Memory & Vision</h2>
         <div className={styles.memoryContent}>
@@ -100,12 +117,6 @@ export default function Home() {
           </p>
         </div>
       </section>
-
-      <div className={styles.backgroundOverlay}>
-        <div className={`${styles.blob} ${styles.blobBlue}`}></div>
-        <div className={`${styles.blob} ${styles.blobPurple}`}></div>
-        <div className={`${styles.blob} ${styles.blobPink}`}></div>
-      </div>
     </main>
   );
 }

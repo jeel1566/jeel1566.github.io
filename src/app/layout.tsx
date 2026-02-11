@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import Header from '@/components/Header';
 import CustomCursor from '@/components/CustomCursor';
 
 export const metadata: Metadata = {
@@ -16,7 +15,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
         <CustomCursor />
         {children}
       </body>
