@@ -13,17 +13,13 @@ const navLinks = [
 ];
 
 function Navbar() {
-    // useState — toggle mobile hamburger menu
     const [menuOpen, setMenuOpen] = useState(false);
-
-    // useContext — read & update active page
     const { activePage, setActivePage } = useNav();
-
-    // Sync active page with URL on route change
     const location = useLocation();
+
     useEffect(() => {
         setActivePage(location.pathname);
-        setMenuOpen(false); // close menu on route change
+        setMenuOpen(false);
     }, [location.pathname, setActivePage]);
 
     return (
@@ -32,7 +28,7 @@ function Navbar() {
                 <Link to="/" className="navbar-logo">JEEL.</Link>
 
                 <div className="navbar-links">
-                    {navLinks.map(link => (
+                    {navLinks.map((link) => (
                         <Link
                             key={link.path}
                             to={link.path}
@@ -43,21 +39,22 @@ function Navbar() {
                     ))}
                 </div>
 
-                {/* Hamburger — useState toggle */}
-                <div
+                <button
+                    type="button"
                     className="navbar-hamburger"
-                    onClick={() => setMenuOpen(prev => !prev)}
+                    onClick={() => setMenuOpen((prev) => !prev)}
                     aria-label="Toggle menu"
+                    aria-expanded={menuOpen}
+                    aria-controls="mobile-navigation"
                 >
                     <span />
                     <span />
                     <span />
-                </div>
+                </button>
             </nav>
 
-            {/* Mobile dropdown menu */}
-            <div className={`navbar-mobile-menu ${menuOpen ? 'open' : ''}`}>
-                {navLinks.map(link => (
+            <div id="mobile-navigation" className={`navbar-mobile-menu ${menuOpen ? 'open' : ''}`}>
+                {navLinks.map((link) => (
                     <Link
                         key={link.path}
                         to={link.path}

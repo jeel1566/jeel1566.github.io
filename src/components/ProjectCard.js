@@ -34,7 +34,7 @@ function ProjectCard({ title, desc, tags = [], demo }) {
                     target="_blank"
                     rel="noreferrer"
                 >
-                    LIVE DEMO →
+                    LIVE DEMO
                 </a>
             )}
         </div>

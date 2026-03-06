@@ -1026,3 +1026,66 @@
 .fade-in-5 {
   animation-delay: 0.5s;
 }
+/* ==================== SEO / KNOWLEDGE SECTION ==================== */
+.seo-summary {
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+  padding-top: 56px;
+}
+
+.summary-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3vw, 38px);
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+
+.summary-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 12px 24px;
+  margin-bottom: 36px;
+}
+
+.summary-list li {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  color: var(--gray);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.summary-list strong {
+  color: var(--white);
+}
+
+.faq-block {
+  display: grid;
+  gap: 12px;
+}
+
+.faq-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+}
+
+.faq-item h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: var(--white);
+}
+
+.faq-item p {
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .summary-list {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,11 +1,19 @@
 // Component 5: PhotoCard
 // Concepts: props (tag, tagColor)
-function PhotoCard({ tag = 'Open to Collab', tagColor = '#32d74b', imgSrc, style = {}, imgStyle = {}, children }) {
+function PhotoCard({
+    tag = 'Open to Collab',
+    tagColor = '#32d74b',
+    imgSrc,
+    alt = 'Profile photo',
+    style = {},
+    imgStyle = {},
+    children,
+}) {
     return (
         <div className="photo-card" style={style}>
             {/* Photo area */}
             {imgSrc ? (
-                <img src={imgSrc} alt="Profile" className="photo-card-img" style={imgStyle} />
+                <img src={imgSrc} alt={alt} className="photo-card-img" style={imgStyle} />
             ) : (
                 <div className="photo-card-placeholder">
                     <div className="photo-card-placeholder-avatar">J</div>
